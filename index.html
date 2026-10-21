@@ -147,7 +147,7 @@ var overlay = document.getElementById("overlay");
 var log = document.getElementById("log");
 var form = document.getElementById("form");
 var input = document.getElementById("text");
-var history = [];
+var chatHistory = [];
 var opener = null;
 
 function add(role, text) {
@@ -174,7 +174,7 @@ function reply(q) {
   return fetch(API_URL, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({messages: history})
+    body: JSON.stringify({messages: chatHistory})
   }).then(function (r) { return r.json(); })
     .then(function (j) { return j.reply || canned(q); })
     .catch(function () { return canned(q); });
@@ -202,11 +202,11 @@ form.addEventListener("submit", function (e) {
   if (!q) return;
   input.value = "";
   add("user", q);
-  history.push({role: "user", content: q});
+  chatHistory.push({role: "user", content: q});
   var typing = add("bot", "Typing…");
   reply(q).then(function (a) {
     typing.textContent = a;
-    history.push({role: "assistant", content: a});
+    chatHistory.push({role: "assistant", content: a});
     log.scrollTop = log.scrollHeight;
   });
 });
