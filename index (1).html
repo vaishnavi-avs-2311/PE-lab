@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Customer Support Agent</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap">
+<style>
+:root{--ink:#0B1B2B;--muted:#4A5B6C;--bg:#F6F8FB;--card:#fff;--line:#DCE3EA;--accent:#0F6B5C;--soft:#E8EEF4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:24px 0}
+.logo{font-weight:800;font-size:20px}
+nav{display:flex;flex-wrap:wrap;gap:24px;align-items:center;font-weight:500;font-size:15px}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:14px 26px;font:inherit;font-weight:600;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid #B8C4D0}
+.btn.light{background:#fff;color:var(--ink)}
+:focus-visible{outline:3px solid #2B7FFF;outline-offset:2px}
+.hero{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding:72px 0 88px}
+.hero-text{flex:1 1 420px}
+.kicker{margin:0 0 16px;font-weight:600;font-size:14px;color:var(--accent)}
+h1{margin:0 0 20px;font-size:clamp(34px,5vw,52px);line-height:1.08;font-weight:800;letter-spacing:-.02em}
+.lead{margin:0 0 32px;font-size:18px;color:var(--muted);max-width:520px}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.mock{flex:1 1 380px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.mock-title{font-weight:600;font-size:14px;color:var(--muted)}
+.msg{padding:12px 16px;max-width:85%;white-space:pre-wrap}
+.me{align-self:flex-end;background:var(--soft);border-radius:14px 14px 4px 14px}
+.bot{align-self:flex-start;background:var(--accent);color:#fff;border-radius:14px 14px 14px 4px}
+h2{margin:0 0 40px;font-size:36px;font-weight:800;letter-spacing:-.01em}
+section.block{padding:24px 0 88px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px}
+.card h3{margin:16px 0 8px;font-size:20px}
+.card p,.step p{margin:0;color:var(--muted)}
+.num{font-weight:800;font-size:40px;color:var(--accent)}
+.step h3{margin:8px 0}
+.cta{background:var(--ink);color:#fff;border-radius:24px;padding:64px 32px;text-align:center;margin-bottom:64px}
+.cta h2{margin:0 0 16px}
+.cta p{margin:0 auto 32px;max-width:520px;color:#C7D2DD}
+footer{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;padding:0 0 40px;font-size:14px;color:var(--muted)}
+footer a{margin-right:16px}
+#overlay{position:fixed;inset:0;background:rgba(11,27,43,.55);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
+#overlay[hidden]{display:none}
+.dialog{background:#fff;width:100%;max-width:520px;height:640px;max-height:100%;border-radius:20px;display:flex;flex-direction:column;overflow:hidden}
+.dhead{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line);font-weight:800}
+.close{background:var(--soft);color:var(--ink);border:0;border-radius:8px;width:44px;height:44px;font-size:22px;cursor:pointer}
+#log{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px}
+.dform{display:flex;gap:8px;padding:16px 20px;border-top:1px solid var(--line)}
+.dform input{flex:1;min-width:0;border:1px solid #B8C4D0;border-radius:10px;padding:12px 14px;font:inherit;color:var(--ink)}
+.dform .btn{padding:12px 20px;min-height:44px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+<a class="logo" href="#top">AskDesk</a>
+<nav>
+<a href="#features">Features</a>
+<a href="#how">How it works</a>
+<button class="btn" data-open>Book a demo</button>
+</nav>
+</header>
+
+<section class="hero" id="top">
+<div class="hero-text">
+<p class="kicker">AI customer support agent</p>
+<h1>Answer every customer, any hour, in your voice.</h1>
+<p class="lead">An AI agent trained on your help docs and past tickets. It resolves routine questions instantly and hands the rest to your team with full context.</p>
+<div class="row">
+<button class="btn" data-open>Start free trial</button>
+<a class="btn ghost" href="#how">See how it works</a>
+</div>
+</div>
+<div class="mock" aria-label="Example support conversation">
+<div class="mock-title">Support chat</div>
+<div class="msg me">Where is my order #[ORDER-ID]?</div>
+<div class="msg bot">It shipped yesterday and arrives [DATE]. Want the tracking link?</div>
+<div class="msg me">Yes, and I need to change the address.</div>
+<div class="msg bot">I’m passing you to a teammate who can edit shipped orders. They’ll see this whole chat.</div>
+</div>
+</section>
+
+<section class="block" id="features">
+<h2>Built for real support work</h2>
+<div class="grid">
+<div class="card">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0F6B5C" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+<h3>Instant, always on</h3>
+<p>Replies in seconds across chat and email, nights and weekends included.</p>
+</div>
+<div class="card">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0F6B5C" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+<h3>Grounded in your content</h3>
+<p>Answers come from your docs and policies, with sources shown. No source, no guess.</p>
+</div>
+<div class="card">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0F6B5C" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M17 11l2 2 3-4"/></svg>
+<h3>Smooth human handoff</h3>
+<p>Sensitive or complex cases route to your team with the full conversation attached.</p>
+</div>
+</div>
+</section>
+
+<section class="block" id="how" style="padding-top:0">
+<h2>Live in three steps</h2>
+<div class="grid">
+<div class="step"><div class="num">1</div><h3>Connect your knowledge</h3><p>Import help center articles, FAQs and past tickets.</p></div>
+<div class="step"><div class="num">2</div><h3>Set tone and rules</h3><p>Define voice, what it may do, and when to escalate.</p></div>
+<div class="step"><div class="num">3</div><h3>Launch and improve</h3><p>Embed the widget, review conversations, refine over time.</p></div>
+</div>
+</section>
+
+<section class="cta">
+<h2>Ready to cut your ticket backlog?</h2>
+<p>See the agent answer questions from your own help docs in a 20-minute demo.</p>
+<button class="btn light" data-open>Book a demo</button>
+</section>
+
+<footer>
+<span>© [YEAR] AskDesk</span>
+<span><a href="#features">Features</a><a href="#how">How it works</a><a href="mailto:[YOUR EMAIL]">Contact</a></span>
+</footer>
+</div>
+
+<div id="overlay" hidden>
+<div class="dialog" role="dialog" aria-modal="true" aria-label="Chat with the support agent">
+<div class="dhead"><span>Support agent demo</span><button class="close" id="close" aria-label="Close chat">&times;</button></div>
+<div id="log" aria-live="polite"></div>
+<form class="dform" id="form">
+<input id="text" type="text" aria-label="Your message" placeholder="Type your question" autocomplete="off">
+<button class="btn" type="submit">Send</button>
+</form>
+</div>
+</div>
+
+<script>
+// Optional: point this at your own backend to get real AI replies.
+// It should accept POST {messages:[{role,content}]} and return {reply:"..."}.
+// Keep any API key on that server, never in this file.
+var API_URL = "https://support-chat.vaishnavi-ayalasomayajula.workers.dev";
+
+var overlay = document.getElementById("overlay");
+var log = document.getElementById("log");
+var form = document.getElementById("form");
+var input = document.getElementById("text");
+var history = [];
+var opener = null;
+
+function add(role, text) {
+  var d = document.createElement("div");
+  d.className = "msg " + (role === "user" ? "me" : "bot");
+  d.textContent = text;
+  log.appendChild(d);
+  log.scrollTop = log.scrollHeight;
+  return d;
+}
+
+function canned(q) {
+  q = q.toLowerCase();
+  if (/price|cost|plan|pay/.test(q)) return "Pricing depends on your ticket volume. A teammate can send you a quote after a short demo.";
+  if (/human|agent|person|escalat|handoff/.test(q)) return "Complex or sensitive cases go to your team, with the full conversation attached so customers never repeat themselves.";
+  if (/doc|train|knowledge|data|source/.test(q)) return "I answer from your help center articles, FAQs and past tickets, and show the source for each answer.";
+  if (/demo|book|call|trial/.test(q)) return "Great. Share your email and a teammate will set up a 20-minute demo.";
+  if (/hello|hi\b|hey/.test(q)) return "Hi! Ask me how I work, what I can answer, or how to book a demo.";
+  return "Good question. A teammate can walk you through that in a demo. Want me to set one up?";
+}
+
+function reply(q) {
+  if (!API_URL) return Promise.resolve(canned(q));
+  return fetch(API_URL, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({messages: history})
+  }).then(function (r) { return r.json(); })
+    .then(function (j) { return j.reply || canned(q); })
+    .catch(function () { return canned(q); });
+}
+
+function openChat(e) {
+  opener = e.currentTarget;
+  overlay.hidden = false;
+  if (!log.children.length) add("bot", "Hi, I’m the support agent for AskDesk. Ask me anything about how I work, or what you’d like to see in a demo.");
+  input.focus();
+}
+function closeChat() {
+  overlay.hidden = true;
+  if (opener) opener.focus();
+}
+
+document.querySelectorAll("[data-open]").forEach(function (b) { b.addEventListener("click", openChat); });
+document.getElementById("close").addEventListener("click", closeChat);
+overlay.addEventListener("click", function (e) { if (e.target === overlay) closeChat(); });
+document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !overlay.hidden) closeChat(); });
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  var q = input.value.trim();
+  if (!q) return;
+  input.value = "";
+  add("user", q);
+  history.push({role: "user", content: q});
+  var typing = add("bot", "Typing…");
+  reply(q).then(function (a) {
+    typing.textContent = a;
+    history.push({role: "assistant", content: a});
+    log.scrollTop = log.scrollHeight;
+  });
+});
+</script>
+</body>
+</html>
