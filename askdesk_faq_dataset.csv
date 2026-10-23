@@ -1,0 +1,31 @@
+id,category,question,answer
+FAQ-01,Orders,How do I track my order?,"Open the tracking link in your shipping confirmation email, or give us your order number and we will look up the latest status."
+FAQ-02,Orders,Where is my order?,"Check the tracking link in your confirmation email. If the status has not changed for 3 days, share your order number and a teammate will investigate."
+FAQ-03,Orders,Can I change or cancel my order?,"Orders can be changed or cancelled within 1 hour of placing them. After that the order may already be packed, and a teammate can check if it can still be stopped."
+FAQ-04,Orders,Can I change my delivery address after ordering?,"Address changes are possible only before the order ships. Once it has shipped, a teammate must contact the carrier, so please share your order number."
+FAQ-05,Orders,I did not receive an order confirmation email. What should I do?,"Check your spam or junk folder first. If it is not there, confirm that the email address on your account is correct and ask us to resend it."
+FAQ-06,Orders,My order arrived damaged. What should I do?,We are sorry about that. Send your order number and a photo of the damage within 7 days of delivery and a teammate will arrange a replacement or refund.
+FAQ-07,Orders,My order is missing an item. What should I do?,"Check whether the item shipped in a separate package. If not, send your order number and the item name, and a teammate will resolve it."
+FAQ-08,Shipping,How long does delivery take?,Standard delivery takes 3 to 5 business days. Express delivery takes 1 to 2 business days. Delivery times start after the order ships.
+FAQ-09,Shipping,How much does shipping cost?,Standard shipping costs a flat fee shown at checkout. Orders above the free shipping minimum ship free. Express shipping has an extra charge.
+FAQ-10,Shipping,Do you ship internationally?,International shipping is available to selected countries. Delivery time and fees are shown at checkout once you enter your address.
+FAQ-11,Shipping,Can I choose a delivery time slot?,Delivery slots are not available at present. The carrier will deliver during normal working hours and you will receive tracking updates.
+FAQ-12,Shipping,What if I am not home when the courier arrives?,The courier will usually try again on the next business day or leave a collection notice. You can also use the tracking link to rearrange delivery.
+FAQ-13,Returns and Refunds,What is your return policy?,Unused items in their original packaging can be returned within 30 days of delivery for a refund or exchange.
+FAQ-14,Returns and Refunds,How do I return an item?,Request a return from your account or send us your order number. We will email a return label with simple instructions.
+FAQ-15,Returns and Refunds,How long does a refund take?,Refunds are issued within 5 to 7 business days after we receive the returned item. Your bank may need extra time to show it.
+FAQ-16,Returns and Refunds,Can I exchange an item for a different size or color?,"Yes. Request an exchange within 30 days of delivery, and we will send the new item once the original has been received."
+FAQ-17,Returns and Refunds,Who pays for return shipping?,"Return shipping is free if the item is faulty or the wrong item was sent. For other returns, a return fee may be deducted from the refund."
+FAQ-18,Returns and Refunds,Which items cannot be returned?,"Gift cards, personalised items and opened hygiene products cannot be returned unless they arrive faulty."
+FAQ-19,Payments,Which payment methods do you accept?,"We accept major credit and debit cards, UPI and net banking. The available methods are shown at checkout."
+FAQ-20,Payments,Is my payment information secure?,Payments are processed by a secure payment provider. We do not store your full card details.
+FAQ-21,Payments,Why was my payment declined?,"Common reasons are incorrect card details, insufficient balance or a bank security check. Try again or use another method, and contact your bank if it continues."
+FAQ-22,Payments,I was charged twice. What should I do?,"Duplicate charges are often temporary holds that disappear in a few days. If it is still there after 5 business days, share your order number so a teammate can check."
+FAQ-23,Payments,Can I get an invoice for my order?,"Yes. Invoices are available in your account under order history, and we can also email a copy on request."
+FAQ-24,Account,How do I reset my password?,Choose Forgot password on the sign-in page and enter your email address. We will send a link to set a new password.
+FAQ-25,Account,How do I update my email address or phone number?,"Sign in, open Account settings, and edit your contact details. A confirmation may be sent to the new address."
+FAQ-26,Account,How do I delete my account?,Send us a request from your registered email address and a teammate will confirm and delete your account and personal data.
+FAQ-27,Account,I cannot sign in to my account. What should I do?,"Check that your email is correct and try resetting your password. If it still fails, contact us so a teammate can verify your account."
+FAQ-28,Support,What are your support hours?,The AI agent answers at any time. Human teammates are available during business hours and will follow up on handed-over cases.
+FAQ-29,Support,How do I talk to a human?,"Ask for a human at any time. The agent will pass the conversation, with its full history, to a teammate who will follow up."
+FAQ-30,Support,How can I give feedback or make a complaint?,Share your feedback in this chat or by email. A teammate will review complaints and reply.
